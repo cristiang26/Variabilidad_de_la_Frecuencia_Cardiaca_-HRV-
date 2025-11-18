@@ -42,3 +42,18 @@ Métodos no lineales: Proporcionan información adicional y son útiles para eva
 Qué revela la HRV
 Alta HRV: Se vincula con una buena condición física, mejor adaptación al estrés, adecuada recuperación y un estado mental positivo.
 Baja HRV: Puede ser un signo de estrés, mala calidad del sueño, exceso de entrenamiento o problemas de salud más graves, como hipertensión y enfermedades cardíacas.
+
+## Diagrama de Poincaré como herramienta de análisis
+La Variabilidad de la Frecuencia Cardíaca (VFC o HRV) se refiere a los cambios en el tiempo entre los latidos del corazón, y se origina a partir de la interacción de varios osciladores fisiológicos que regulan la actividad del nódulo sinusal. Por esta razón, el estudio de la VFC facilita la evaluación no invasiva del sistema nervioso autónomo, así como la capacidad del corazón para adaptarse a diferentes exigencias fisiológicas.
+
+El análisis que se presenta en este informe utiliza el diagrama de Poincaré como método para examinar la serie R-R, con el propósito de evaluar un enfoque cuantitativo para el estudio de la VFC. A pesar de que su utilidad cualitativa está bien establecida, el uso cuantitativo aún necesita estandarización, especialmente en lo que respecta a la definición de índices y su interpretación fisiológica.
+
+Se llevaron a cabo registros de ECG durante 10 minutos en un grupo de 15 pacientes con VFC reducida (diabetes tipo 1 de larga duración) y un grupo control de 15 personas de edad comparable (42–70 años). A partir de estas grabaciones, se recuperaron los intervalos RR, y se calcularon tanto índices tradicionales de VFC (estadísticos y espectrales) como parámetros obtenidos de los diagramas de Poincaré.
+
+En lugar de utilizar el Poincaré de manera convencional (retardo 1), se generaron diagramas con diferentes retardos (2, 3, 5, 6, 7, 10 y 20), ajustando elipses a cada conjunto de puntos. De estas elipses se derivaron tres índices cuantitativos: área, diámetro mayor (Dmax) y diámetro menor (dmin), cada uno identificado con su respectivo retardo.
+
+Los resultados indicaron que los índices obtenidos del diagrama de Poincaré fueron tan eficaces como los convencionales para diferenciar entre los pacientes con VFC reducida y el grupo de control (p 0. 96). Además, dmin1 mostró una fuerte correlación con índices de variabilidad a corto plazo (RMSSD y HF), los cuales están estrechamente relacionados con la actividad del sistema parasimpático (r ≥ 0. 95).
+
+En los pacientes diabéticos, dmin20 se asoció tanto con RMSSD y HF como con SDNN (r = 0. 92), mientras que en el grupo control, este índice presentó la correlación más significativa con la banda LF, la cual está vinculada a la acción conjunta de los sistemas simpático y parasimpático. Esta diferencia en el comportamiento resalta la utilidad del análisis de Poincaré para identificar alteraciones autonómicas específicas, como las que resultan de la neuropatía diabética.
+
+En resumen, el estudio evidencia que el diagrama de Poincaré no solo representa una herramienta visual eficaz, sino que también constituye una técnica cuantitativa robusta para el análisis de la VFC y el equilibrio autonómico. Su capacidad para diferenciar entre diversos estados autonómicos y superar las limitaciones de los métodos convencionales lo convierte en un recurso valioso para investigaciones y aplicaciones clínicas. En este informe, el estudio será utilizado como referencia y guía para contextualizar el análisis de la serie R-R y entender el papel del Poincaré en la evaluación del equilibrio entre los sistemas simpático y parasimpático.
