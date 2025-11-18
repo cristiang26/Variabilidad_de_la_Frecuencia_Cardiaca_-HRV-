@@ -105,4 +105,5 @@ plt.ylabel('Voltaje [mV]')
 plt.grid(True)
 plt.show()
 ```
+<img width="833" height="393" alt="image" src="https://github.com/user-attachments/assets/6dbcfacb-4d74-4fbf-86e6-ff350c4289c4" />
 
