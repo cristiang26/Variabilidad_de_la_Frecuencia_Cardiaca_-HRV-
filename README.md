@@ -25,3 +25,20 @@ Facilita la micción y la evacuación.
 Cómo trabajan juntos, ambos sistemas funcionan continuamente en un estado de equilibrio conocido como tono simpático y tono parasimpático.
 El sistema nervioso simpático se activa en situaciones de riesgo, mientras que el parasimpático actúa para restablecer la normalidad una vez que el peligro ha desaparecido.
 Esta interacción opuesta y equilibrada es fundamental para el bienestar general y la supervivencia del ser vivo.
+
+## Variabilidad de la frecuencia cardíaca (HRV)
+La variabilidad de la frecuencia cardíaca (HRV) se determina mediante la señal del electrocardiograma (ECG), al analizar las diferencias temporales entre latidos sucesivos (intervalos R-R). Este examen brinda información significativa sobre el estado cardiovascular, los niveles de estrés y la capacidad del organismo para ajustarse a diferentes situaciones. Una HRV elevada generalmente sugiere una mejor salud y recuperación, mientras que una HRV baja podría estar relacionada con estrés, mala calidad del sueño o problemas de salud que hay que investigar.
+
+¿Cómo se mide la HRV a partir del ECG?
+Identificación de picos R: Se localizan y etiquetan los picos R consecutivos en la señal de ECG, los cuales representan la despolarización de los ventrículos.
+Cálculo de intervalos R-R: Se estima el tiempo que transcurre entre cada conjunto de picos R contiguos.
+Análisis de la variabilidad: Se examinan las variaciones en estos intervalos R-R para determinar la HRV.
+
+Métodos de análisis
+Métodos en el dominio del tiempo: Son los más básicos y se enfocan en estudiar los intervalos R-R para calcular variables como el intervalo medio NN, la frecuencia cardíaca promedio y la diferencia entre los intervalos más largos y más cortos.
+Métodos en el dominio de la frecuencia: Analizan la señal de la HRV en términos de sus frecuencias individuales.
+Métodos no lineales: Proporcionan información adicional y son útiles para evaluar el impacto de hormonas y temperatura, aunque su uso es menos común debido a su complejidad.
+
+Qué revela la HRV
+Alta HRV: Se vincula con una buena condición física, mejor adaptación al estrés, adecuada recuperación y un estado mental positivo.
+Baja HRV: Puede ser un signo de estrés, mala calidad del sueño, exceso de entrenamiento o problemas de salud más graves, como hipertensión y enfermedades cardíacas.
