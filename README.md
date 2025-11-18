@@ -106,7 +106,7 @@ plt.show()
 ```
 <img width="833" height="393" alt="image" src="https://github.com/user-attachments/assets/6dbcfacb-4d74-4fbf-86e6-ff350c4289c4" />
 
-## Parte C
+## Parte B
 Para analizar la señal de ECG obtenida en el laboratorio, se requirió establecer un filtro digital IIR (Respuesta a Impulso Infinito) para suprimir elementos no deseados y mantener solo la información fisiológica importante. Dado que el ECG es muy susceptible a diversos tipos de ruidos, seleccionar correctamente las frecuencias de corte y el tipo de filtro afecta de manera directa la calidad del análisis posterior (determinación de picos R, cálculo de intervalos RR y HRV).
 
 El rango operativo de un electrocardiograma estándar se establece entre 0. 5 Hz y 40 Hz:
@@ -129,4 +129,87 @@ Atenuar de manera efectiva la deriva de baja frecuencia.
 Se muestra a continuacion el diagrama de flujo de respectiva para esta parte B y la realizacion del filtro IIR:
 
 
-## Parte D
+## Parte C
+Acontinuacion se muestra el diagrama de flujo sobre el analisis y diagrama de poincare:
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import find_peaks
+import math
+
+
+segment_duration_sec = 60       
+samples_per_segment = int(segment_duration_sec * fs)
+n_segments = int(len(filtrado_final) // samples_per_segment)
+
+min_rr_sec = 0.25             
+min_distance = int(min_rr_sec * fs)
+
+resultados = []
+
+for seg in range(n_segments):
+    start = seg * samples_per_segment
+    end = start + samples_per_segment
+
+    segmento = filtrado_final[start:end]
+    tiempo_seg = tiempo[start:end]
+
+   
+    umbral = np.mean(segmento) + 0.4*np.std(segmento)
+    prominencia = 0.3*np.std(segmento)
+
+    picos, _ = find_peaks(segmento, distance=min_distance,
+                          height=umbral, prominence=prominencia)
+
+    t_picos = tiempo_seg[picos]
+
+    if len(t_picos) < 2:
+        print(f"Segmento {seg+1}: insuficientes RR.")
+        continue
+
+    rr = np.diff(t_picos) * 1000  
+
+    rr_n = rr[:-1]
+    rr_n1 = rr[1:]
+
+    diff_rr = rr_n1 - rr_n
+    var_diff = np.var(diff_rr, ddof=1)
+    var_rr = np.var(rr, ddof=1)
+
+    SD1 = np.sqrt(var_diff / 2)
+    SD2 = np.sqrt(2 * var_rr - (var_diff / 2))
+
+    # ---- ÍNDICES CVI y CSI ----
+    CVI = np.log10(SD1 * SD2)
+    CSI = SD2 / SD1
+
+    resultados.append({
+        "segmento": seg+1,
+        "SD1": SD1,
+        "SD2": SD2,
+        "CVI": CVI,
+        "CSI": CSI
+    })
+
+    plt.figure(figsize=(6,6))
+    plt.scatter(rr_n, rr_n1, s=10)
+    plt.plot([min(rr_n), max(rr_n)], [min(rr_n), max(rr_n)], '--')
+    plt.title(f"Poincaré - Segmento {seg+1}\nSD1={SD1:.2f} ms   SD2={SD2:.2f} ms")
+    plt.xlabel("RRₙ (ms)")
+    plt.ylabel("RRₙ₊₁ (ms)")
+    plt.grid(True)
+    plt.gca().set_aspect('equal')
+    plt.show()
+
+import pandas as pd
+df = pd.DataFrame(resultados)
+df
+```
+<img width="537" height="568" alt="image" src="https://github.com/user-attachments/assets/c10512c2-9caa-48ea-90f2-e22424e0b707" />
+<img width="537" height="568" alt="image" src="https://github.com/user-attachments/assets/a3a809d0-819a-4425-a088-2a127636d3a2" />
+<img width="537" height="568" alt="image" src="https://github.com/user-attachments/assets/3cd1aa5d-ca5f-4d16-b78c-498eaff4fab9" />
+<img width="537" height="568" alt="image" src="https://github.com/user-attachments/assets/5c4f8f2d-a4e1-40b7-bef4-465d223e8fd0" />
+<img width="518" height="195" alt="image" src="https://github.com/user-attachments/assets/e28c3b71-cb9f-4862-a7a6-2d784193a763" />
+
+
