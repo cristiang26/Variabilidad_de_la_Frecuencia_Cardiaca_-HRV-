@@ -107,7 +107,7 @@ plt.show()
 ```
 <img width="833" height="393" alt="image" src="https://github.com/user-attachments/assets/6dbcfacb-4d74-4fbf-86e6-ff350c4289c4" />
 
-## Parte B
+## Parte C
 Se muestra a continuacion el diagrama de flujo de respectiva para esta parte B y la realizacion del filtro IIR:
 
 Para analizar la señal de ECG obtenida en el laboratorio, se requirió establecer un filtro digital IIR (Respuesta a Impulso Infinito) para suprimir elementos no deseados y mantener solo la información fisiológica importante. Dado que el ECG es muy susceptible a diversos tipos de ruidos, seleccionar correctamente las frecuencias de corte y el tipo de filtro afecta de manera directa la calidad del análisis posterior (determinación de picos R, cálculo de intervalos RR y HRV).
@@ -119,3 +119,12 @@ Ruido muscular (EMG)
 Artefactos por movimientos
 Ruidos de alta frecuencia del sistema
 Interferencias digitales
+
+Por otra parte el filtro IIR se sellecciono por sus beneficios prácticos en sistemas biomédicos de recolección de señales:
+- Alta eficiencia:
+Con un número reducido de coeficientes, logra pendientes pronunciadas, lo que posibilita la obtención de una banda de rechazo estrecha sin tener que recurrir a órdenes elevados, como sucedería con un FIR.
+- Mejor aprovechamiento de recursos:
+Al captar señales durante períodos prolongados (240 segundos), un IIR disminuye considerablemente el tiempo de procesamiento y el consumo de memoria.
+- Alta capacidad de selectividad:
+Facilita la atención de las necesidades del ECG, donde es necesario:
+Atenuar de manera efectiva la deriva de baja frecuencia.
