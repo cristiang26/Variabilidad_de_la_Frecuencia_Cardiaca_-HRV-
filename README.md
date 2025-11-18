@@ -8,7 +8,7 @@ Este laboratorio trata el análisis digital de un electrocardiograma real para e
 El sistema simpático y el sistema parasimpático son dos divisiones del sistema nervioso autónomo que actúan de manera contraria para mantener el equilibrio en el cuerpo. El sistema simpático se activa en situaciones de "lucha o huida", preparando al organismo para el estrés con reacciones como el incremento de la frecuencia cardíaca y la dilatación de las pupilas. En contraste, el sistema parasimpático fomenta la tranquilidad y la recuperación, gestionando procesos como la digestión, disminuyendo la frecuencia cardíaca y contrayendo las pupilas.
 
 Sistema simpático ("lucha o huida")
-Función: Se encarga de preparar el cuerpo para reaccionar rápidamente frente a un peligro o reto, movilizando energía.
+Función: Se encarga de preparar el cuerpo para reaccionar rápidamente frente a un peligro o reto, movilizando energia.
 Efectos:
 Eleva la frecuencia cardíaca y la intensidad de contracción.
 Dilata las pupilas.
