@@ -62,7 +62,7 @@ En resumen, el estudio evidencia que el diagrama de Poincaré no solo representa
 
 ## Parte B
 
-Se muestra a continuacion el diagrama de flujo de respectiva para esta parte y la realizacion del filtro IIR:
+Se muestra a continuacion el diagrama de flujo de respectiva para esta parte:
 
 
 Antes que todo se llamaron las bibliotecas que se utilizaran principalmente en este laboratorio y su buen analisis de este.
@@ -107,3 +107,15 @@ plt.show()
 ```
 <img width="833" height="393" alt="image" src="https://github.com/user-attachments/assets/6dbcfacb-4d74-4fbf-86e6-ff350c4289c4" />
 
+## Parte B
+Se muestra a continuacion el diagrama de flujo de respectiva para esta parte B y la realizacion del filtro IIR:
+
+Para analizar la señal de ECG obtenida en el laboratorio, se requirió establecer un filtro digital IIR (Respuesta a Impulso Infinito) para suprimir elementos no deseados y mantener solo la información fisiológica importante. Dado que el ECG es muy susceptible a diversos tipos de ruidos, seleccionar correctamente las frecuencias de corte y el tipo de filtro afecta de manera directa la calidad del análisis posterior (determinación de picos R, cálculo de intervalos RR y HRV).
+
+El rango operativo de un electrocardiograma estándar se establece entre 0. 5 Hz y 40 Hz:
+- 0. 5 Hz → Es la frecuencia más baja que refleja el movimiento lento del complejo P-QRS-T. Por debajo de este umbral, se presenta el ruido de la línea base derivado de la respiración, el movimiento corporal, variaciones en el contacto de los electrodos o la sudoración.
+- 40 Hz → Es el límite superior para el contenido espectral significativo del electrocardiograma. Superando este valor, se presentan ruidos como:
+Ruido muscular (EMG)
+Artefactos por movimientos
+Ruidos de alta frecuencia del sistema
+Interferencias digitales
