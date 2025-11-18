@@ -65,6 +65,44 @@ En resumen, el estudio evidencia que el diagrama de Poincaré no solo representa
 Se muestra a continuacion el diagrama de flujo de respectiva para esta parte y la realizacion del filtro IIR:
 
 
+Antes que todo se llamaron las bibliotecas que se utilizaran principalmente en este laboratorio y su buen analisis de este.
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+!pip install wfdb   #Instalacion en colab
+import wfdb
+import pandas as pd
+```
 Este código analiza una señal de electrocardiograma (ECG) que se obtuvo directamente de un sujeto durante la sesión en el laboratorio. La grabación tuvo una duración total de 4 minutos (240 segundos), que se dividieron en dos fases: 2 minutos en completo reposo y 2 minutos realizando una lectura en voz alta, con el objetivo de provocar alteraciones fisiológicas en la frecuencia del pulso y observar su respuesta dinámica.
 Para asegurar la correcta captura de la actividad eléctrica del corazón, se utilizó una tasa de muestreo de 2000 Hz, elegida conforme al principio de Nyquist, que indica que la tasa de muestreo debe ser al menos el doble de la frecuencia máxima presente en la señal. Dado que las partes relevantes del ECG están por debajo de 250 Hz (que es el nivel base del sistema utilizado), se eligió una frecuencia que es cuatro veces este valor, garantizando así una reconstrucción precisa y evitando la pérdida de información detallada del complejo QRS.
 A partir de esta tasa de muestreo, se elaboró el vector de tiempo correspondiente, lo cual permite mostrar adecuadamente el desarrollo de la señal a lo largo de los 240 segundos completos. Finalmente, utilizando Matplotlib, se graficó la señal capturada, ilustrando claramente las diferencias entre el estado de reposo y la lectura en voz alta, y facilitando la identificación de los cambios en la actividad eléctrica del corazón a lo largo de toda la adquisición.
+
+``` python
+datos = np.loadtxt('/content/drive/MyDrive/Senal_lab_corazon.10.txt')
+print("Dimensiones del archivo:", datos.shape)
+
+# columnas → tiempo y señal
+if datos.shape[1] == 2:
+    tiempo = datos[:,0]
+    senal = datos[:,1]
+else:
+    # Si solo hay una columna, el tiempo se genera artificialmente
+    senal = datos
+    fs = 2000 # frecuencia de muestreo (ajusta)
+    tiempo = np.arange(len(senal)) / fs
+
+fs = 2000
+duracion_deseada = 240
+muestras = int(duracion_deseada * fs)
+
+plt.figure(figsize=(10,4))
+plt.plot(tiempo[:muestras], senal[:muestras], color='orange')
+plt.title('Señal EMG real ')
+plt.xlabel('Tiempo [s]')
+plt.xlim(0,240)
+plt.ylim(0,5)
+plt.ylabel('Voltaje [mV]')
+plt.grid(True)
+plt.show()
+```
+
