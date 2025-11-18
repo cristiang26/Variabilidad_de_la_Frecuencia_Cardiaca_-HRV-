@@ -1,7 +1,8 @@
 # Variabilidad_de_la_Frecuencia_Cardiaca_-HRV-
 Este laboratorio trata el análisis digital de un electrocardiograma real para examinar la variabilidad en el ritmo cardíaco. Se lleva a cabo una segmentación en el tiempo, identificación automática de los picos R, cálculo de los intervalos RR y elaboración de gráficos de Poincaré.
 
-## Actividad Simpatica y Parasimpatica con sus efectos en el sistema cardiaco
+## Parte A
+### Actividad Simpatica y Parasimpatica con sus efectos en el sistema cardiaco
 El sistema simpático y el sistema parasimpático son dos divisiones del sistema nervioso autónomo que actúan de manera contraria para mantener el equilibrio en el cuerpo. El sistema simpático se activa en situaciones de "lucha o huida", preparando al organismo para el estrés con reacciones como el incremento de la frecuencia cardíaca y la dilatación de las pupilas. En contraste, el sistema parasimpático fomenta la tranquilidad y la recuperación, gestionando procesos como la digestión, disminuyendo la frecuencia cardíaca y contrayendo las pupilas.
 
 Sistema simpático ("lucha o huida")
@@ -26,7 +27,7 @@ Cómo trabajan juntos, ambos sistemas funcionan continuamente en un estado de eq
 El sistema nervioso simpático se activa en situaciones de riesgo, mientras que el parasimpático actúa para restablecer la normalidad una vez que el peligro ha desaparecido.
 Esta interacción opuesta y equilibrada es fundamental para el bienestar general y la supervivencia del ser vivo.
 
-## Variabilidad de la frecuencia cardíaca (HRV)
+### Variabilidad de la frecuencia cardíaca (HRV)
 La variabilidad de la frecuencia cardíaca (HRV) se determina mediante la señal del electrocardiograma (ECG), al analizar las diferencias temporales entre latidos sucesivos (intervalos R-R). Este examen brinda información significativa sobre el estado cardiovascular, los niveles de estrés y la capacidad del organismo para ajustarse a diferentes situaciones. Una HRV elevada generalmente sugiere una mejor salud y recuperación, mientras que una HRV baja podría estar relacionada con estrés, mala calidad del sueño o problemas de salud que hay que investigar.
 
 ¿Cómo se mide la HRV a partir del ECG?
@@ -43,7 +44,7 @@ Qué revela la HRV
 Alta HRV: Se vincula con una buena condición física, mejor adaptación al estrés, adecuada recuperación y un estado mental positivo.
 Baja HRV: Puede ser un signo de estrés, mala calidad del sueño, exceso de entrenamiento o problemas de salud más graves, como hipertensión y enfermedades cardíacas.
 
-## Diagrama de Poincaré como herramienta de análisis
+### Diagrama de Poincaré como herramienta de análisis
 La Variabilidad de la Frecuencia Cardíaca (VFC o HRV) se refiere a los cambios en el tiempo entre los latidos del corazón, y se origina a partir de la interacción de varios osciladores fisiológicos que regulan la actividad del nódulo sinusal. Por esta razón, el estudio de la VFC facilita la evaluación no invasiva del sistema nervioso autónomo, así como la capacidad del corazón para adaptarse a diferentes exigencias fisiológicas.
 
 El análisis que se presenta en este informe utiliza el diagrama de Poincaré como método para examinar la serie R-R, con el propósito de evaluar un enfoque cuantitativo para el estudio de la VFC. A pesar de que su utilidad cualitativa está bien establecida, el uso cuantitativo aún necesita estandarización, especialmente en lo que respecta a la definición de índices y su interpretación fisiológica.
@@ -57,3 +58,13 @@ Los resultados indicaron que los índices obtenidos del diagrama de Poincaré fu
 En los pacientes diabéticos, dmin20 se asoció tanto con RMSSD y HF como con SDNN (r = 0. 92), mientras que en el grupo control, este índice presentó la correlación más significativa con la banda LF, la cual está vinculada a la acción conjunta de los sistemas simpático y parasimpático. Esta diferencia en el comportamiento resalta la utilidad del análisis de Poincaré para identificar alteraciones autonómicas específicas, como las que resultan de la neuropatía diabética.
 
 En resumen, el estudio evidencia que el diagrama de Poincaré no solo representa una herramienta visual eficaz, sino que también constituye una técnica cuantitativa robusta para el análisis de la VFC y el equilibrio autonómico. Su capacidad para diferenciar entre diversos estados autonómicos y superar las limitaciones de los métodos convencionales lo convierte en un recurso valioso para investigaciones y aplicaciones clínicas. En este informe, el estudio será utilizado como referencia y guía para contextualizar el análisis de la serie R-R y entender el papel del Poincaré en la evaluación del equilibrio entre los sistemas simpático y parasimpático.
+
+
+## Parte B
+
+Se muestra a continuacion el diagrama de flujo de respectiva para esta parte y la realizacion del filtro IIR:
+
+
+Este código analiza una señal de electrocardiograma (ECG) que se obtuvo directamente de un sujeto durante la sesión en el laboratorio. La grabación tuvo una duración total de 4 minutos (240 segundos), que se dividieron en dos fases: 2 minutos en completo reposo y 2 minutos realizando una lectura en voz alta, con el objetivo de provocar alteraciones fisiológicas en la frecuencia del pulso y observar su respuesta dinámica.
+Para asegurar la correcta captura de la actividad eléctrica del corazón, se utilizó una tasa de muestreo de 2000 Hz, elegida conforme al principio de Nyquist, que indica que la tasa de muestreo debe ser al menos el doble de la frecuencia máxima presente en la señal. Dado que las partes relevantes del ECG están por debajo de 250 Hz (que es el nivel base del sistema utilizado), se eligió una frecuencia que es cuatro veces este valor, garantizando así una reconstrucción precisa y evitando la pérdida de información detallada del complejo QRS.
+A partir de esta tasa de muestreo, se elaboró el vector de tiempo correspondiente, lo cual permite mostrar adecuadamente el desarrollo de la señal a lo largo de los 240 segundos completos. Finalmente, utilizando Matplotlib, se graficó la señal capturada, ilustrando claramente las diferencias entre el estado de reposo y la lectura en voz alta, y facilitando la identificación de los cambios en la actividad eléctrica del corazón a lo largo de toda la adquisición.
