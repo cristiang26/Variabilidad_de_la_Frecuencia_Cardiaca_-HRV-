@@ -162,7 +162,98 @@ plt.show()
 En el siguinete recuadro se podra ver la señal filtrada de una vista mas aumentada, de 220 a 240 segundos, donde se apreciara con mejor claridad la señal del ECG
 <img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/80912309-ef49-49cf-a08a-a9d63496ac61" />
  
+Para la siguiente parte debemos dividir la señal filtrada en dos segmentos de señal con duración de 2 minutos 
+cada una, ya con esto identificar los picos R en cada uno de los segmentos, y posteriormente calcular los intervalos 
+R-R y analisar estos datos.
 
+Para poder hacer esto se utilizo el siguiente codigo:
+
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import find_peaks
+
+
+fs = 2000  
+dur_segmento = 120   
+N_segmento = dur_segmento * fs
+
+senal_filtrada = filtrado_final  
+t = tiempo  
+
+segmento1 = senal_filtrada[0 : N_segmento]
+segmento2 = senal_filtrada[N_segmento : 2*N_segmento]
+
+t1 = t[0 : N_segmento]
+t2 = t[N_segmento : 2*N_segmento]
+
+
+def detectar_R(seg, tiempo):
+  
+    umbral = np.mean(seg) + 0.5 * np.std(seg)
+    prominencia = 0.5 * np.std(seg)
+
+    picos, _ = find_peaks(seg, height=umbral, distance=int(0.25*fs),
+                          prominence=prominencia)
+
+    tiempos_R = tiempo[picos]
+    return picos, tiempos_R
+
+picos1, tiempos_R1 = detectar_R(segmento1, t1)
+picos2, tiempos_R2 = detectar_R(segmento2, t2)
+
+
+
+RR1 = np.diff(tiempos_R1) * 1000   
+RR2 = np.diff(tiempos_R2) * 1000
+
+
+media_RR1 = np.mean(RR1)
+std_RR1   = np.std(RR1)
+
+media_RR2 = np.mean(RR2)
+std_RR2   = np.std(RR2)
+
+print("========== RESULTADOS HRV ==========\n")
+print("SEGMENTO 1 (0–2 min)")
+print(f"RR medio: {media_RR1:.2f} ms")
+print(f"Desviación estándar RR: {std_RR1:.2f} ms\n")
+
+print("SEGMENTO 2 (2–4 min)")
+print(f"RR medio: {media_RR2:.2f} ms")
+print(f"Desviación estándar RR: {std_RR2:.2f} ms")
+
+
+plt.figure(figsize=(12,5))
+plt.plot(t1, segmento1, label="Segmento 1")
+plt.plot(t1[picos1], segmento1[picos1], 'ro', markersize=4, label="Picos R seg1")
+plt.title("Segmento 1 (0–120 s) con picos R detectados")
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Amplitud")
+plt.legend()
+plt.grid()
+plt.show()
+
+plt.figure(figsize=(12,5))
+plt.plot(t2, segmento2, label="Segmento 2")
+plt.plot(t2[picos2], segmento2[picos2], 'ro', markersize=4, label="Picos R seg2")
+plt.title("Segmento 2 (120–240 s) con picos R detectados")
+plt.xlabel("Tiempo [s]")
+plt.ylabel("Amplitud")
+plt.legend()
+plt.grid()
+plt.show()
+```
+<img width="1012" height="470" alt="image" src="https://github.com/user-attachments/assets/0e59f06f-789c-409d-a678-8f6c83e7b3f7" />
+
+<img width="1012" height="470" alt="image" src="https://github.com/user-attachments/assets/6b15e8c4-3351-42ab-a126-88a64a6668fb" />
+
+<img width="402" height="200" alt="image" src="https://github.com/user-attachments/assets/c0cb1e05-306d-4413-930c-fb0c7b551872" />
+
+El analisis de la variabilidad del intervalo R-R en el electrocardiograma permitió analizar cómo varía la regulación autónoma del corazón entre un estado de reposo y un momento de lectura en voz alta. En la primera parte del análisis, que abarca los primeros dos minutos de reposo, el promedio del intervalo R-R fue de 755. 08 ms, lo cual se traduce en una frecuencia cardíaca próxima a 79 latidos por minuto. Este número, junto con una desviación estándar de 72. 57 ms, sugiere un ritmo relativamente constante, con una variabilidad moderada típica de una situación basal que se caracteriza por un predominio de la influencia del sistema parasimpático. La respiración constante y la falta de estimulaciones cognitivas significativas se manifiestan en una regulación controlada del intervalo R-R.
+
+Por otro lado, en el segundo segmento, que corresponde al momento en que el participante llevó a cabo la lectura en voz alta, el intervalo R-R promedio bajó a 715. 08 ms, lo que indica un incremento en la frecuencia cardíaca hasta aproximadamente 84 latidos por minuto. Además, la desviación estándar experimentó un notable aumento, alcanzando los 107. 24 ms. Este aumento sugiere un aumento en la variabilidad del ritmo cardíaco, relacionado con una combinación de respiración más irregular, esfuerzo cognitivo, articulación del habla y una mayor activación del sistema nervioso simpático. Durante el acto de leer en voz alta, la interacción entre la actividad respiratoria y la carga mental produce variaciones más amplias en los intervalos cardíacos, generando un patrón de mayor dispersión en el tiempo.
 
 ## Parte C
 Acontinuacion se muestra el diagrama de flujo sobre el analisis y diagrama de poincare:
