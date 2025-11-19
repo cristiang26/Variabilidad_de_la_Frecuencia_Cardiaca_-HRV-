@@ -151,14 +151,17 @@ plt.plot(tiempo, senal, label='Señal original', alpha=0.5)
 plt.plot(tiempo, filtrado_final, label='Señal filtrada (20–250 Hz)', linewidth=1.5)
 plt.xlabel('Tiempo [s]')
 plt.ylabel('Amplitud')
-plt.xlim(220,240)
+plt.xlim(0,240)
 plt.title('Señal antes y después del filtrado pasa-altos + pasa-bajos')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
 plt.show()
 ```
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/05b0f7a4-d77e-4a28-926d-f2414ae420b4" />
+En el siguinete recuadro se podra ver la señal filtrada de una vista mas aumentada, de 220 a 240 segundos, donde se apreciara con mejor claridad la señal del ECG
 <img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/80912309-ef49-49cf-a08a-a9d63496ac61" />
+ 
 
 
 ## Parte C
