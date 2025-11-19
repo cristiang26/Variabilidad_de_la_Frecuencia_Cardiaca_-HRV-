@@ -147,7 +147,7 @@ filtrado_hp = signal.sosfiltfilt(sos_hp, senal)
 filtrado_final = signal.sosfiltfilt(sos_lp, filtrado_hp)
 
 plt.figure(figsize=(10,5))
-plt.plot(tiempo, senal, label='Señal original', alpha=0.5) # Changed datos to senal and t to tiempo
+plt.plot(tiempo, senal, label='Señal original', alpha=0.5) 
 plt.plot(tiempo, filtrado_final, label='Señal filtrada (20–250 Hz)', linewidth=1.5)
 plt.xlabel('Tiempo [s]')
 plt.ylabel('Amplitud')
