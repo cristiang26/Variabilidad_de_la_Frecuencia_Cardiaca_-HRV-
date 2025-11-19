@@ -134,6 +134,9 @@ Facilita la atención de las necesidades del ECG, donde es necesario:
 Atenuar de manera efectiva la deriva de baja frecuencia.
 
 Se muestra a continuacion el diagrama de flujo de respectiva para esta parte B y la realizacion del filtro IIR:
+
+<img width="734" height="1645" alt="Screenshot_2025-11-19-14-05-35-129_com android chrome" src="https://github.com/user-attachments/assets/6408e66e-d573-4e9f-a3df-bd8ba33a0bcf" />
+
 ``` python
 import numpy as np
 from scipy import signal
