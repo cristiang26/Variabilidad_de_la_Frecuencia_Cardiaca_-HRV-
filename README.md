@@ -7,6 +7,7 @@ Se muestra el diagrama de plan de accion de la toma de la señal del paciente
 <img width="591" height="1818" alt="Screenshot_2025-11-19-13-10-09-918_com android chrome" src="https://github.com/user-attachments/assets/a1330f13-2b90-4419-9cf7-e74ce83a5787" />
 
 
+
 ### Fundamentos teóricos 
 #### Actividad Simpatica y Parasimpatica con sus efectos en el sistema cardiaco
 El sistema simpático y el sistema parasimpático son dos divisiones del sistema nervioso autónomo que actúan de manera contraria para mantener el equilibrio en el cuerpo. El sistema simpático se activa en situaciones de "lucha o huida", preparando al organismo para el estrés con reacciones como el incremento de la frecuencia cardíaca y la dilatación de las pupilas. En contraste, el sistema parasimpático fomenta la tranquilidad y la recuperación, gestionando procesos como la digestión, disminuyendo la frecuencia cardíaca y contrayendo las pupilas.
@@ -66,6 +67,8 @@ En los pacientes diabéticos, dmin20 se asoció tanto con RMSSD y HF como con SD
 En resumen, el estudio evidencia que el diagrama de Poincaré no solo representa una herramienta visual eficaz, sino que también constituye una técnica cuantitativa robusta para el análisis de la VFC y el equilibrio autonómico. Su capacidad para diferenciar entre diversos estados autonómicos y superar las limitaciones de los métodos convencionales lo convierte en un recurso valioso para investigaciones y aplicaciones clínicas. En este informe, el estudio será utilizado como referencia y guía para contextualizar el análisis de la serie R-R y entender el papel del Poincaré en la evaluación del equilibrio entre los sistemas simpático y parasimpático.
 ### Adquisición de la señal ECG  
 Acontinuacnion se muestra el diagrama de flujo de respectiva para la parte al capturar la señal e graficarla y ver sus cambios:
+
+<img width="1302" height="2144" alt="Screenshot_2025-11-19-13-31-42-105_com openai chatgpt" src="https://github.com/user-attachments/assets/d6dfedc5-2287-4e54-aaa8-4cb1e2aca575" />
 
 
 Antes que todo se llamaron las bibliotecas que se utilizaran principalmente en este laboratorio y su buen analisis de este.
