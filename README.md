@@ -3,6 +3,10 @@ Este laboratorio trata el análisis digital de un electrocardiograma real para e
 
 ## Parte A
 
+Se muestra el diagrama de plan de accion de la toma de la señal del paciente 
+<img width="591" height="1818" alt="Screenshot_2025-11-19-13-10-09-918_com android chrome" src="https://github.com/user-attachments/assets/a1330f13-2b90-4419-9cf7-e74ce83a5787" />
+
+
 ### Fundamentos teóricos 
 #### Actividad Simpatica y Parasimpatica con sus efectos en el sistema cardiaco
 El sistema simpático y el sistema parasimpático son dos divisiones del sistema nervioso autónomo que actúan de manera contraria para mantener el equilibrio en el cuerpo. El sistema simpático se activa en situaciones de "lucha o huida", preparando al organismo para el estrés con reacciones como el incremento de la frecuencia cardíaca y la dilatación de las pupilas. En contraste, el sistema parasimpático fomenta la tranquilidad y la recuperación, gestionando procesos como la digestión, disminuyendo la frecuencia cardíaca y contrayendo las pupilas.
