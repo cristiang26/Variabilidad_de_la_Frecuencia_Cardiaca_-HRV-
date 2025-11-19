@@ -262,6 +262,8 @@ Por otro lado, en el segundo segmento, que corresponde al momento en que el part
 ## Parte C
 Acontinuacion se muestra el diagrama de flujo sobre el analisis y diagrama de poincare:
 
+![IMG-20251119-WA0013](https://github.com/user-attachments/assets/b7b703ac-c748-4936-bdde-f0454a3eb16b)
+
 ``` python
 import numpy as np
 import matplotlib.pyplot as plt
