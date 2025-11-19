@@ -127,6 +127,38 @@ Facilita la atención de las necesidades del ECG, donde es necesario:
 Atenuar de manera efectiva la deriva de baja frecuencia.
 
 Se muestra a continuacion el diagrama de flujo de respectiva para esta parte B y la realizacion del filtro IIR:
+``` python
+import numpy as np
+from scipy import signal
+import matplotlib.pyplot as plt
+
+fs = 2000.0
+hp_cut = 10
+lp_cut = 40.0
+order = 4
+
+nyq = fs / 2.0
+
+sos_hp = signal.butter(order, hp_cut / nyq, btype='highpass', output='sos')
+
+sos_lp = signal.butter(order, lp_cut / nyq, btype='lowpass', output='sos')
+
+filtrado_hp = signal.sosfiltfilt(sos_hp, senal)
+filtrado_final = signal.sosfiltfilt(sos_lp, filtrado_hp)
+
+plt.figure(figsize=(10,5))
+plt.plot(tiempo, senal, label='Señal original', alpha=0.5) # Changed datos to senal and t to tiempo
+plt.plot(tiempo, filtrado_final, label='Señal filtrada (20–250 Hz)', linewidth=1.5)
+plt.xlabel('Tiempo [s]')
+plt.ylabel('Amplitud')
+plt.xlim(220,240)
+plt.title('Señal antes y después del filtrado pasa-altos + pasa-bajos')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/80912309-ef49-49cf-a08a-a9d63496ac61" />
 
 
 ## Parte C
